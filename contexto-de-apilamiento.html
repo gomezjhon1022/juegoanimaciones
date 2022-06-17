@@ -27,7 +27,7 @@
             z-index: 1;
             height: 450px;
             width: 80px;
-            background: white;
+            background: papayawhip;
             bottom: 0;
             right: 60px;
         }
@@ -36,7 +36,7 @@
             z-index: 2;
             height: 450px;
             width: 80px;
-            background: white;
+            background: papayawhip;
             bottom: 0;
             left: 60px;
         }
@@ -54,7 +54,7 @@
         .layer-4 {
             position:absolute;
             z-index: 4;
-            height: 345px;
+            height: 340px;
             width: 80px;
             background: white;
             bottom: 0;
@@ -65,14 +65,14 @@
             z-index: 5;
             left: 0;
             width: 200px;
-            height: 300px;
+            height: 290px;
             background: red;
             bottom: 0;
         }
         .layer-6 {
             position:absolute;
             z-index: 6;
-            height: 245px;
+            height: 250px;
             width: 80px;
             background: white;
             bottom: 0;
@@ -116,16 +116,118 @@
             bottom: 0;
             right: 0;
         }
+        .left-ear--outer {
+            background: white;
+            border-radius: 90%;
+            width: 20px;
+            height: 50px;
+            position: absolute;
+            left: 10px;
+        }
+        .left-ear--inner {
+            background: pink;
+            border-radius: 90%;
+            width: 10px;
+            height: 50px;
+            position: absolute;
+            left: 15px;
+            top: 8px;
+        }
+        .right-ear--outer {
+            background: white;
+            border-radius: 90%;
+            width: 20px;
+            height: 50px;
+            position: absolute;
+            right: 10px;
+        }
+        .right-ear--inner {
+            background: pink;
+            border-radius: 90%;
+            width: 10px;
+            height: 50px;
+            position: absolute;
+            right: 15px;
+            top: 8px;
+        }
+        .head {
+            background: white;
+            border-radius: 50%;
+            height: 80px;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            position: absolute;
+            top: 30px;
+            width: 100%;
+        }
+        .head__eye {
+            background: black;
+            border-radius: 50%;
+            width: 4px;
+            height: 4px;
+            position: absolute;
+            top: 15px;
+        }
+        .head__eye--left {
+            left: 30px;
+        }
+        .head__eye--right {
+            right: 30px;
+        }
     </style>
 </head>
 <body>
     <div class="phone">
-        <div class="layer-1"></div>
-        <div class="layer-2"></div>
+        <!-- bunny 1 -->
+        <div class="layer-1">
+            <div class="left-ear--outer"></div>
+            <div class="left-ear--inner"></div>
+            <div class="right-ear--outer"></div>
+            <div class="right-ear--inner"></div>
+            <div class="head">
+                <div class="head__eye head__eye--left"></div>
+                <div class="head__eye head__eye--right"></div>
+            </div>
+        </div>
+        <!-- bunny 2 -->
+        <div class="layer-2">
+            <div class="left-ear--outer"></div>
+            <div class="left-ear--inner"></div>
+            <div class="right-ear--outer"></div>
+            <div class="right-ear--inner"></div>
+            <div class="head">
+                <div class="head__eye head__eye--left"></div>
+                <div class="head__eye head__eye--right"></div>
+            </div>
+        </div>
+        <!-- wall 1 -->
         <div class="layer-3"></div>
-        <div class="layer-4"></div>
+        <!-- bunny 3 -->
+        <div class="layer-4">
+            <div class="left-ear--outer"></div>
+            <div class="left-ear--inner"></div>
+            <div class="right-ear--outer"></div>
+            <div class="right-ear--inner"></div>
+            <div class="head">
+                <div class="head__eye head__eye--left"></div>
+                <div class="head__eye head__eye--right"></div>
+            </div>
+        </div>
+        <!-- wall 2 -->
         <div class="layer-5"></div>
-        <div class="layer-6"></div>
+        <!-- bunny 4 -->
+        <div class="layer-6">
+            <div class="left-ear--outer"></div>
+            <div class="left-ear--inner"></div>
+            <div class="right-ear--outer"></div>
+            <div class="right-ear--inner"></div>
+            <div class="head">
+                <div class="head__eye head__eye--left"></div>
+                <div class="head__eye head__eye--right"></div>
+            </div>
+        </div>
+        <!-- wall 3 -->
         <div class="layer-7"></div>
         <div class="layer-8"></div>
         <div class="layer-9"></div>
