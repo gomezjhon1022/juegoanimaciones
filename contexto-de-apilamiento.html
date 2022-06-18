@@ -6,12 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        :root {
+            --dark-brown: #a54a38;
+            --light-brown: #bf624c;
+            --dark-green: #51af5e;
+            --shadow: 0 19px 38px rgba(0,0,0,0.30),
+                      0 15px 12px rgba(0,0,0,0.22);
+        }
         body {
             margin: 0;
             height: 100vh;
             width: 100%;
             display: grid;
             place-items: center;
+            counter-reset: score;
         }
         .phone {
             position: relative;
@@ -21,24 +29,89 @@
             width: 300px;
             background: #ccefff;
             box-shadow: 0 19px 38px rgb(0, 0,0, 0.30),0 15px 12px rgb(0, 0,0, 0.22);
+            overflow: hidden;
         }
+        input[type=checkbox] {
+            appearance: none;
+            cursor: pointer;
+            height: 50px;
+            margin: 0;
+            position: relative;
+            top: 0;
+            width: 80px;
+            z-index: 2;
+        }
+        input[type=checkbox]:focus {
+            appearance: none;
+            outline: none;
+        }
+        input:checked {
+            counter-increment: score;
+        }
+        .score::after {
+            content:  counter(score);
+        }
+        @keyframes bunny {
+            0% {
+                top: 0;
+                }
+            25% {
+                top: 80px;
+                }
+            100% {
+                top: 0;
+                }
+        }
+        @keyframes layer {
+            0% {
+                bottom: 0;
+            }
+            35% {
+                bottom: -60px;
+            }
+            100% {
+                bottom: 0px;
+            }
+        }
+
         .layer-1 {
             position:absolute;
             z-index: 1;
             height: 450px;
             width: 80px;
-            background: papayawhip;
+            /* background: papayawhip; */
             bottom: 0;
             right: 60px;
+            animation-name: layer;
+            animation-duration: 1s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+        }
+        .layer-1 input[type=checkbox] {
+            animation-name: bunny;
+            animation-duration: 1s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
         }
         .layer-2 {
             position:absolute;
             z-index: 2;
             height: 450px;
             width: 80px;
-            background: papayawhip;
+            /* background: papayawhip; */
             bottom: 0;
             left: 60px;
+
+            animation-name: layer;
+            animation-duration: 1.5s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+        }
+        .layer-2 input[type=checkbox] {
+            animation-name: bunny;
+            animation-duration: 1.5s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
         }
         .layer-3 {
             position:absolute;
@@ -48,7 +121,9 @@
             margin: 0 auto;
             width: 220px;
             height: 400px;
-            background: greenyellow;
+            background: var(--light-brown);
+            border-radius:  20px;
+            overflow: hidden;
             bottom: 0;
         }
         .layer-4 {
@@ -56,17 +131,30 @@
             z-index: 4;
             height: 340px;
             width: 80px;
-            background: white;
+            /* background: white; */
             bottom: 0;
             left: 15px;
+            animation-name: layer;
+            animation-duration: 0.5s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
         }
+        .layer-4 input[type=checkbox] {
+            animation-name: bunny;
+            animation-duration: 0.5s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+    }
         .layer-5 {
+            background: var(--light-brown);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
             position:absolute;
             z-index: 5;
             left: 0;
             width: 200px;
             height: 290px;
-            background: red;
             bottom: 0;
         }
         .layer-6 {
@@ -74,9 +162,20 @@
             z-index: 6;
             height: 250px;
             width: 80px;
-            background: white;
+            /* background: white; */
             bottom: 0;
             right: 29px;
+
+            animation-name: layer;
+            animation-duration: 2s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+        }
+        .layer-6 input[type=checkbox] {
+            animation-name: bunny;
+            animation-duration: 2s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
         }
         .layer-7 {
             position:absolute;
@@ -84,7 +183,10 @@
             right: 0;
             width: 160px;
             height: 200px;
-            background: yellow;
+            background: var(--light-brown);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
             bottom: 0;
         }
         .layer-8 {
@@ -95,7 +197,7 @@
             margin: 0 auto;
             width: 220px;
             height: 120px;
-            background: gray;
+            /* background: gray; */
             bottom: 0;
         }
         .layer-9 {
@@ -103,7 +205,7 @@
             z-index: 9;
             height: 90px;
             width: 100px;
-            background: white;
+            /* background: white; */
             bottom: 0;
             left: 0;
         }
@@ -112,7 +214,7 @@
             z-index: 10;
             height: 90px;
             width: 100px;
-            background: white;
+            /* background: white; */
             bottom: 0;
             right: 0;
         }
@@ -123,6 +225,7 @@
             height: 50px;
             position: absolute;
             left: 10px;
+            top: 0;
         }
         .left-ear--inner {
             background: pink;
@@ -140,6 +243,7 @@
             height: 50px;
             position: absolute;
             right: 10px;
+            top: 0;
         }
         .right-ear--inner {
             background: pink;
@@ -162,12 +266,28 @@
             width: 100%;
         }
         .head__eye {
-            background: black;
+            background: gray;
             border-radius: 50%;
             width: 4px;
             height: 4px;
             position: absolute;
             top: 15px;
+            animation-name: blink;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+        }
+        @keyframes blink {
+        0% {
+            height: 4px;
+        }
+        5% {
+            transform: translate(0px, 2px);
+            height: 1px;
+        }
+        10% {
+            transform: translate(0px, 0px);
+            height: 4px;
+        }
         }
         .head__eye--left {
             left: 30px;
@@ -175,12 +295,110 @@
         .head__eye--right {
             right: 30px;
         }
+        .lawn {
+            background: var(--dark-green);
+            height: 20px;
+            width: 100%;
+        }
+        .land {
+            background: linear-gradient(135deg, var(--dark-green) 25%, transparent 25%) -50px 0,
+                        linear-gradient(-135deg, var(--dark-green) 25%, transparent 25%) -50px 0,
+                        linear-gradient(45deg, var(--light-brown) 25%, transparent 25%),
+                        linear-gradient(-45deg, transparent 25%, var(--dark-brown) 25%);
+            background-size: 33px 30px;
+            height: 30px;
+            width: 100%;
+        }
+        .layer-8__left-lawn {
+            background: var(--dark-green);
+            border-radius: 40px 40px 0 0;
+            bottom: 0;
+            display: inline-block;
+            height: 70%;
+            left: 0;
+            position: absolute;
+            width: 80px;
+        }
+        .layer-8__center-lawn {
+            background: var(--dark-green);
+            border-radius: 40px 40px 0 0;
+            bottom: 0;
+            display: inline-block;
+            height: 100%;
+            left: 60px;
+            position: absolute;
+            width: 80px;
+        }
+        .layer-8__right-lawn {
+            background: var(--dark-green);
+            border-radius: 40px 40px 0 0;
+            bottom: 0;
+            display: inline-block;
+            height: 80%;
+            left: 130px;
+            position: absolute;
+            width: 80px;
+        }
+        .layer-9__left-cloud {
+            background: white;
+            border-radius: 40px 40px 0 0;
+            display: inline-block;
+            height: 100%;
+            left: 0;
+            position: absolute;
+            width: 80px;
+        }
+        .layer-9__right-cloud {
+            background: white;
+            border-radius: 0 40px 30px 0;
+            bottom: 0;
+            display: inline-block;
+            height: 60%;
+            left: 80px;
+            position: absolute;
+            width: 40px;
+        }
+        .layer-10__left-cloud {
+            background: white;
+            border-radius: 40px 0 0 30px;
+            bottom: 0;
+            display: inline-block;
+            height: 60%;
+            right: 80px;
+            position: absolute;
+            width: 40px;
+        }
+        .layer-10__right-cloud {
+            background: white;
+            border-radius: 40px 40px 0 0;
+            display: inline-block;
+            height: 100%;
+            right: 0px;
+            position: absolute;
+            width: 80px;
+        }
+        .title {
+            display: flex;
+            justify-content: center;
+            margin: 45px 0 10px;
+        }
+        .title img {
+            width: 60%;
+        }
+        .score {
+            color: var(--light-brown);
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            margin: 0;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <div class="phone">
         <!-- bunny 1 -->
         <div class="layer-1">
+            <input type="checkbox">
             <div class="left-ear--outer"></div>
             <div class="left-ear--inner"></div>
             <div class="right-ear--outer"></div>
@@ -192,6 +410,7 @@
         </div>
         <!-- bunny 2 -->
         <div class="layer-2">
+            <input type="checkbox">
             <div class="left-ear--outer"></div>
             <div class="left-ear--inner"></div>
             <div class="right-ear--outer"></div>
@@ -202,9 +421,13 @@
             </div>
         </div>
         <!-- wall 1 -->
-        <div class="layer-3"></div>
+        <div class="layer-3">
+            <div class="lawn"></div>
+            <div class="land"></div>
+        </div>
         <!-- bunny 3 -->
         <div class="layer-4">
+            <input type="checkbox">
             <div class="left-ear--outer"></div>
             <div class="left-ear--inner"></div>
             <div class="right-ear--outer"></div>
@@ -215,9 +438,13 @@
             </div>
         </div>
         <!-- wall 2 -->
-        <div class="layer-5"></div>
+        <div class="layer-5">
+            <div class="lawn"></div>
+            <div class="land"></div>
+        </div>
         <!-- bunny 4 -->
         <div class="layer-6">
+            <input type="checkbox">
             <div class="left-ear--outer"></div>
             <div class="left-ear--inner"></div>
             <div class="right-ear--outer"></div>
@@ -228,10 +455,27 @@
             </div>
         </div>
         <!-- wall 3 -->
-        <div class="layer-7"></div>
-        <div class="layer-8"></div>
-        <div class="layer-9"></div>
-        <div class="layer-10"></div>
+        <div class="layer-7">
+            <div class="lawn"></div>
+            <div class="land"></div>
+        </div>
+        <div class="layer-8">
+            <div class="layer-8__left-lawn"></div>
+            <div class="layer-8__center-lawn"></div>
+            <div class="layer-8__right-lawn"></div>
+        </div>
+        <div class="layer-9">
+            <div class="layer-9__left-cloud"></div>
+            <div class="layer-9__right-cloud"></div>
+        </div>
+        <div class="layer-10">
+            <div class="layer-10__left-cloud"></div>
+            <div class="layer-10__right-cloud"></div>
+        </div>
+        <h1 class="title">
+            <img src="https://i.ibb.co/J3Kn71r/cbd152ddb203fe23ad78261749534e7d.png" alt="Animationland">
+        </h1>
+        <h2 class="score">Score: </h2>
     </div>
 </body>
 </html>
